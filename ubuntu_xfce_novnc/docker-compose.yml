@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  ubuntu-web:
+    # image:  "yen3/ubuntu-novnc"
+    image: "terrychu/docker-ubuntu-novnc"
+    ports:
+      - 6080:6080
+    restart: "always"
