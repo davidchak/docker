@@ -1,0 +1,39 @@
+version: '3'
+
+networks:
+  wan:
+  lan:
+
+services:
+  web:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    container_name: "web"
+    restart: always
+    networks:
+      - wan
+      - lan
+    ports:
+      - "80:80"
+
+  api:
+    build:
+      context: ./api
+      dockerfile: ./Dockerfile
+    container_name: "api"
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - lan
+    expose:
+      - "8080"
+    
+  # openvrt:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./openvrt/Dockerfile
+  #   restart: always
+  #   networks:
+  #     - lan
