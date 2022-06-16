@@ -1,14 +1,14 @@
 version: "3"
 
 services:
-  ubuntu-web:
+  ubuntu:
     # image:  "yen3/ubuntu-novnc"
     # image: "terrychu/docker-ubuntu-novnc"
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: "ubuntu_openbox_xrdp"
     ports:
       - 6080:6080
       - 3399:3390
-      - 80:80
     # restart: "always"
