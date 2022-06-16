@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  freeipa:
+    image: "freeipa/freeipa-server:fedora-36"
+    container_name: "freeipa"
+    ports:
+      - 80:80
+      - 443:443
+
