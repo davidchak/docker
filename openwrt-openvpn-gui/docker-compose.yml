@@ -5,7 +5,6 @@ networks:
   net0:
 
 services:
-  
   openwrt:
     build:
       context: .
@@ -24,5 +23,3 @@ services:
     env_file: 
       - ./env/.env.local
     restart: "on-failure"
-
-    

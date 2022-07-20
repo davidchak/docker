@@ -8,3 +8,8 @@ os.system('''
     opkg update &&
     opkg install openvpn-openssl openvpn-easy-rsa
 ''')
+
+# Установка dns-over-https
+# os.system('''
+#     opkg install dnsmasq https-dns-proxy luci-app-https-dns-proxy
+# ''')
