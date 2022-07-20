@@ -1,20 +1,28 @@
-version: "3"
+# TODO: Переделать получение пароля из файла
+version: "3.6"
 
-network:
-  net:
-
-volumes:
-  install:
+networks:
+  net0:
 
 services:
-  web:
+  
+  openwrt:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./openwrt-server/Dockerfile
+      args:
+        - root_passwd=1234
+      target: openwrt
     ports:
       - 80:80
       - 443:443
+      - 7681:7681
     networks:
-      - net
-    restart: "always"
+      - net0
+    volumes:
+      - ./setup:/mnt/setup:ro
+    env_file: 
+      - ./env/.env.local
+    restart: "on-failure"
+
     
