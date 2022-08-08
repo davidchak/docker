@@ -5,20 +5,23 @@ ARG root_passwd
 
 EXPOSE 80 443 7681
 
+
 RUN mkdir /var/lock && \
     opkg update && \
-    opkg install luci \
+    opkg install \
     python3 \
     python3-pip \
     shadow-chpasswd \
+    htop \
     ttyd \
+    luci-ssl-nginx \
     luci-app-ttyd
+    # nginx-ssl-util \
+    # nginx \
 
-# TODO: Установить пароль root из env
 # TODO: Импортировать скрипт автонастройки сети
 # TODO: Импортировать скрипт автонастройки openvpn
 # TODO: Импортировать скрипт автонастройки nginx + gui + backend
-# TODO: Отключить luci
 
 USER $root_user
 

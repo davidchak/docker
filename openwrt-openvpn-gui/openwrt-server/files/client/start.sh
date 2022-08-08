@@ -1,0 +1,1 @@
+/usr/sbin/uwsgi --set die-on-idle=true --ini /etc/uwsgi/webui/usgi.webui.ini
